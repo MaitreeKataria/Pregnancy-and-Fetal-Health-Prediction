@@ -32,8 +32,7 @@ Follow these steps to run the Streamlit code locally:
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/pregnancy-and-fetal-health-prediction.git
-cd medpredict
+git clone https://github.com/MaitreeKataria/Pregnancy-and-Fetal-Health-Prediction.git
 ```
 ### Install Dependencies
  ```bash
