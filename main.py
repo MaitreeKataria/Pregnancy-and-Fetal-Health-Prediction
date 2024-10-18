@@ -11,7 +11,7 @@ from codebase.dashboard_graphs import MaternalHealthDashboard
 
 maternal_model = pickle.load(open("model/finalized_maternal_model.sav", 'rb'))
 fetal_model = pickle.load(open("model/fetal_health_classifier.sav", 'rb'))
-
+st.set_page_config(page_title = "Pregnancy Health")
 with st.sidebar:
     st.title("Mother & Baby Care")
     st.write("Welcome to the Mother & Baby Care")

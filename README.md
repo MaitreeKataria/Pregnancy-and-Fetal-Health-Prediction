@@ -1,11 +1,11 @@
-# MedPredict - Advanced Maternal and Fetal Health Prediction Platform
+# Mother & Baby Care - Advanced Maternal and Fetal Health Prediction Platform
 
 ## Introduction
 
-Welcome to MedPredict, an innovative platform dedicated to advancing maternal and fetal health through predictive analysis. MedPredict empowers healthcare professionals and users alike by providing accurate predictions and proactive risk management related to pregnancy.
+Welcome to Mother & Baby Care, an innovative platform dedicated to advancing maternal and fetal health through predictive analysis. Mother & Baby Care empowers healthcare professionals and users alike by providing accurate predictions and proactive risk management related to pregnancy.
 
 ### Webapp URL
-MedPredict: [MedPredict link](https://maternalcare-cbupxflodo4uhz8hzqqqng.streamlit.app/)
+[Mother & Baby Care](https://pregnancy-and-fetal-health-prediction.onrender.com)
 
 ## Key Features
 
@@ -32,8 +32,7 @@ Follow these steps to run the Streamlit code locally:
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/medpredict.git
-cd medpredict
+git clone https://github.com/MaitreeKataria/Pregnancy-and-Fetal-Health-Prediction.git
 ```
 ### Install Dependencies
  ```bash
