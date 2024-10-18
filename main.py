@@ -1,6 +1,7 @@
 import streamlit as st
 from streamlit_option_menu import option_menu
 import pickle
+import joblib
 import warnings
 import pandas as pd
 import plotly.express as px
@@ -63,17 +64,18 @@ if selected == 'Pregnancy Risk Prediction':
     with col3:
         BS = st.text_input('Blood glucose in mmol/L', key="bs")
     with col1:
-        bodyTemp = st.text_input('Body temperature in celsius', key="btemp")
+        bodyTemp = st.text_input('Body temperature in fahrenheit', key="btemp")
     with col2:
         heartRate = st.text_input('Heart rate in beats per minute', key="hr")
 
     riskLevel = ""
     predicted_risk = [0]
+    scaleX = joblib.load('./notebook/scaleX.pkl')
     with col1:
         if st.button('Predict Pregnancy Risk'):
             with warnings.catch_warnings():
                 warnings.simplefilter("ignore")
-                predicted_risk = maternal_model.predict([[age, diastolicBP, BS, bodyTemp, heartRate]])
+                predicted_risk = maternal_model.predict(scaleX.transform([[age, diastolicBP, BS, bodyTemp, heartRate]]))
             st.subheader("Risk Level:")
             if predicted_risk[0] == 0:
                 st.markdown('<bold><p style="font-weight: bold; font-size: 20px; color: green;">Low Risk</p></bold>', unsafe_allow_html=True)
