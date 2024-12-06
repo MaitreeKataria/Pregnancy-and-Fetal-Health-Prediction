@@ -91,7 +91,7 @@ if selected == 'Fetal Health Prediction':
     st.title('Fetal Health Prediction')
     content = "Cardiotocograms (CTGs) are a simple and cost-accessible option to assess fetal health, allowing healthcare professionals to take action in order to prevent child and maternal mortality"
     st.markdown(f"<div style='white-space: pre-wrap;'><b>{content}</b></div></br>", unsafe_allow_html=True)
-
+    scaleY = joblib.load('./notebook/scaleY.pkl')
     col1, col2, col3 = st.columns(3)
     with col1:
         BaselineValue = st.text_input('Baseline Value')
@@ -141,7 +141,7 @@ if selected == 'Fetal Health Prediction':
         if st.button('Predict Pregnancy Risk'):
             with warnings.catch_warnings():
                 warnings.simplefilter("ignore")
-                predicted_risk = fetal_model.predict([[BaselineValue, Accelerations, fetal_movement,
+                predicted_risk = fetal_model.predict(scaleY.transform([[BaselineValue, Accelerations, fetal_movement,
                                                        uterine_contractions, light_decelerations, severe_decelerations,
                                                        prolongued_decelerations, abnormal_short_term_variability,
                                                        mean_value_of_short_term_variability,
@@ -149,7 +149,7 @@ if selected == 'Fetal Health Prediction':
                                                        mean_value_of_long_term_variability, histogram_width,
                                                        histogram_min, histogram_max, histogram_number_of_peaks,
                                                        histogram_number_of_zeroes, histogram_mode, histogram_mean,
-                                                       histogram_median, histogram_variance, histogram_tendency]])
+                                                       histogram_median, histogram_variance, histogram_tendency]]))
             st.markdown('</br>', unsafe_allow_html=True)
             if predicted_risk[0] == 0:
                 st.markdown('<bold><p style="font-weight: bold; font-size: 20px; color: green;">Result Comes to be Normal</p></bold>', unsafe_allow_html=True)
